@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PIE - قصة ميلود الشعبي</title>
+
+
+    <style>
+
+        /* ================= GENERAL ================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background: #f5f7fb;
+
+            color: #333;
+        }
+
+
+        /* ================= ZONE SOURIS ================= */
+
+        .top-zone {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 15px;
+
+            z-index: 2000;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+
+            height: 70px;
+
+            background: linear-gradient(
+                135deg,
+                #4a148c,
+                #7b1fa2
+            );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 0 6%;
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            z-index: 1000;
+
+            transform: translateY(-100%);
+
+            transition: transform 0.3s ease;
+
+            box-shadow:
+                0 3px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .logo {
+
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: bold;
+        }
+
+
+        .logo span {
+
+            color: #ffb74d;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 25px;
+        }
+
+
+        .nav-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+
+            color: #ffb74d;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+
+            min-height: 300px;
+
+            background:
+
+                linear-gradient(
+                    rgba(74, 20, 140, 0.85),
+                    rgba(123, 31, 162, 0.80)
+                );
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+        }
+
+
+        .hero-content {
+
+            color: white;
+
+            max-width: 1000px;
+        }
+
+
+        .hero h1 {
+
+            font-size: 50px;
+
+            line-height: 1.4;
+
+            margin-bottom: 15px;
+
+            direction: rtl;
+        }
+
+
+        .hero h1 span {
+
+            color: #ffb74d;
+
+            text-decoration: underline;
+        }
+
+
+        .hero p {
+
+            font-size: 18px;
+
+            opacity: 0.95;
+        }
+
+
+        /* ================= VIDEO SECTION ================= */
+
+        .video-section {
+
+            width: 92%;
+
+            max-width: 1200px;
+
+            margin: 50px auto;
+        }
+
+
+        .section-title {
+
+            text-align: center;
+
+            margin-bottom: 25px;
+        }
+
+
+        .section-title h2 {
+
+            color: #4a148c;
+
+            font-size: 30px;
+
+            margin-bottom: 10px;
+
+            direction: rtl;
+        }
+
+
+        .section-title p {
+
+            color: #666;
+
+            font-size: 16px;
+
+            direction: rtl;
+        }
+
+
+        /* ================= VIDEO CARD ================= */
+
+        .video-card {
+
+            background: white;
+
+            padding: 15px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+
+        video {
+
+            width: 100%;
+
+            display: block;
+
+            border-radius: 12px;
+
+            background: #000;
+        }
+
+
+        /* ================= RETURN BUTTON ================= */
+
+        .button-container {
+
+            text-align: center;
+
+            margin: 35px 0 60px;
+        }
+
+
+        .back-btn {
+
+            display: inline-block;
+
+            text-decoration: none;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #6a1b9a,
+                    #9c27b0
+                );
+
+            color: white;
+
+            padding: 14px 30px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+            box-shadow:
+                0 5px 15px rgba(106, 27, 154, 0.3);
+        }
+
+
+        .back-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(106, 27, 154, 0.4);
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            background: #2b1748;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+
+            margin-top: 50px;
+        }
+
+
+        footer strong {
+
+            color: #ffb74d;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+
+                padding: 0 20px;
+            }
+
+
+            .nav-links {
+
+                gap: 10px;
+            }
+
+
+            .nav-links a {
+
+                font-size: 13px;
+            }
+
+
+            .hero {
+
+                min-height: 280px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 38px;
+            }
+
+
+            .hero p {
+
+                font-size: 16px;
+            }
+
+
+            .video-section {
+
+                width: 95%;
+            }
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 500px) {
+
+            nav {
+
+                height: auto;
+
+                padding: 18px;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+
+            .hero {
+
+                min-height: 250px;
+            }
+
+
+            .hero h1 {
+
+                font-size: 30px;
+            }
+
+
+            .video-section {
+
+                width: 94%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= ZONE SOURIS ================= -->
+
+    <div class="top-zone"></div>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+
+            PIE <span>OFPPT</span>
+
+        </div>
+
+
+        <div class="nav-links">
+            <a href="pie.html">Accueil</a>
+            <a href="intro.html">pour moi</a>
+           
+            <a href="entrop.html">Entrepreneurs</a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+
+                قصة <span>ميلود الشعبي</span>
+
+            </h1>
+
+
+            <p>
+
+                قصة نجاح وتجربة في عالم ريادة الأعمال
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= VIDEO ================= -->
+
+    <section class="video-section">
+
+
+        <div class="section-title">
+
+            <h2>
+
+                🎥 فيديو قصة ميلود الشعبي
+
+            </h2>
+
+
+            <p>
+
+                شاهد الفيديو للتعرف على قصته.
+
+            </p>
+
+        </div>
+
+
+        <div class="video-card">
+
+
+            <video
+                controls
+                autoplay
+                muted
+                loop>
+
+                <source
+                    src="img/راعٍ مغربي تحول لملياردير بفضل ذئب جائع.._ميلود_ أثرى أثرياء المغرب توفى ولم يحقق أم(720P_.mp4">
+
+            </video>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= RETURN BUTTON ================= -->
+
+    <div class="button-container">
+
+        <a
+            href="entrop.html"
+            class="back-btn">
+
+            ← Retour aux entrepreneurs
+
+        </a>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+
+            © 2026
+
+            <strong>
+                PIE OFPPT
+            </strong>
+
+            -
+
+            Projet d'Innovation Entrepreneuriale
+
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ==================================================
+           NAVBAR
+           ================================================== */
+
+
+        const nav =
+            document.querySelector("nav");
+
+
+        const topZone =
+            document.querySelector(".top-zone");
+
+
+        /* Navbar cachée au début */
+
+        nav.style.transform =
+            "translateY(-100%)";
+
+
+        /* Souris en haut de l'écran */
+
+        topZone.addEventListener(
+            "mouseenter",
+            function () {
+
+                nav.style.transform =
+                    "translateY(0)";
+
+            }
+        );
+
+
+        /* Souris dans la navbar */
+
+        nav.addEventListener(
+            "mouseenter",
+            function () {
+
+                nav.style.transform =
+                    "translateY(0)";
+
+            }
+        );
+
+
+        /* Souris quitte la navbar */
+
+        nav.addEventListener(
+            "mouseleave",
+            function () {
+
+                nav.style.transform =
+                    "translateY(-100%)";
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
+
